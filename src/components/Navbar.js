@@ -4,7 +4,7 @@ const Navbar = () => {
 
     return(
         <nav className="navbar navbar-expand-lg navbar-light bg-dark">
-            <h1>Chat server monitoring</h1>
+            <h3 className="text-light">Chat server monitoring</h3>
         </nav>
     )
 }
