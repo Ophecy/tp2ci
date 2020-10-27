@@ -6,9 +6,34 @@
 		"chatroom4"
 	],
 	"users": [
-		"user1",
-		"user2",
-		"user3",
-		"user4"
+		{     
+			"account": {
+				"id": 0,
+				"username": "user1"
+			},
+			"currentStatus": "ACTIVE"
+		},
+		{     
+			"account": {
+				"id": 0,
+				"username": "user2"
+			},
+			"currentStatus": "ACTIVE"
+		},
+		{     
+			"account": {
+				"id": 0,
+				"username": "user3"
+			},
+			"currentStatus": "INACTIVE"
+		},
+		{     
+			"account": {
+				"id": 0,
+				"username": "user4"
+			},
+			"currentStatus": "INACTIVE"
+		}
+
 	]
 }
