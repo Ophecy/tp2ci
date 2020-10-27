@@ -13,15 +13,19 @@ class ActiveUsers extends Component {
     }
 
     componentDidMount(){
-        
+        this._fetchUsers();
     }
 
 
 
     _fetchUsers = async () => {
-        await fetch('../mock.json')
+        const headers = { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+           }
+        fetch('../mock.json',headers)
         .then( res => res.json())
-        .then( jsonRes => this.setState({ users : jsonRes.users }))
+        .then( jsonRes => console.log(jsonRes))
     }
 
 
