@@ -19,9 +19,11 @@ class ActiveUsers extends Component {
 
     _fetchUsers =  () => {
         
-        fetch('http://192.168.43.107/tp2/index.php')
+        fetch('http://a2berranger.alwaysdata.net/tp2/index.php')
         .then( (res) => res.json())
-        .then( json => console.log(json))
+        .then( json => {
+            this.setState({users : json.users.filter( u => u.currentStatus ==="ACTIVE")})
+        })
     }
 
 
