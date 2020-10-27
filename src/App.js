@@ -17,11 +17,12 @@ function App() {
           <Chatrooms />
           <TotalUsers />
         </div>
-      </div>
-      
-      <ActiveUsers />
       <ActiveUsersGrid />
       <ChatroomsGrid />
+
+      </div>
+      
+      
     </div>
   );
 }
