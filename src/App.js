@@ -1,11 +1,14 @@
-import './App.css';
-import ActiveUsers from './components/ActiveUsers'
+import "./App.css";
+import ActiveUsers from "./components/ActiveUsers";
+import ActiveUsersGrid from "./components/ActiveUsersGrid";
+import ChatroomsGrid from "./components/ChatroomsGrid";
 
 function App() {
-
   return (
     <div className="App">
-        <ActiveUsers />
+      <ActiveUsers />
+      <ActiveUsersGrid />
+      <ChatroomsGrid />
     </div>
   );
 }
