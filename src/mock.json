@@ -1,38 +1,38 @@
 {
-	"chatroom":[
-	   "chatroom1",
-	   "chatroom2",
-	   "chatroom3",
-	   "chatroom4"
+	"chatroom": [
+	  "chatroom1",
+	  "chatroom2",
+	  "chatroom3",
+	  "chatroom4"
 	],
-	"users":[
-	   {
-		  "account":{
-			 "id":0,
-			 "username":"user1"
-		  },
-		  "currentStatus":"ACTIVE"
-	   },
-	   {
-		  "account":{
-			 "id":0,
-			 "username":"user2"
-		  },
-		  "currentStatus":"ACTIVE"
-	   },
-	   {
-		  "account":{
-			 "id":0,
-			 "username":"user3"
-		  },
-		  "currentStatus":"INACTIVE"
-	   },
-	   {
-		  "account":{
-			 "id":0,
-			 "username":"user4"
-		  },
-		  "currentStatus":"INACTIVE"
-	   }
+	"users": [
+	  {
+		"account": {
+		  "id": 0,
+		  "username": "user1"
+		},
+		"currentStatus": "ACTIVE"
+	  },
+	  {
+		"account": {
+		  "id": 0,
+		  "username": "user2"
+		},
+		"currentStatus": "ACTIVE"
+	  },
+	  {
+		"account": {
+		  "id": 0,
+		  "username": "user3"
+		},
+		"currentStatus": "INACTIVE"
+	  },
+	  {
+		"account": {
+		  "id": 0,
+		  "username": "user4"
+		},
+		"currentStatus": "INACTIVE"
+	  }
 	]
- }
+  }

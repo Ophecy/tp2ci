@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 
 
-
 class ActiveUsers extends Component {
 
 
@@ -18,14 +17,11 @@ class ActiveUsers extends Component {
 
 
 
-    _fetchUsers = async () => {
-        const headers = { 
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-           }
-        fetch('../mock.json',headers)
-        .then( res => res.json())
-        .then( jsonRes => console.log(jsonRes))
+    _fetchUsers =  () => {
+        
+        fetch('http://192.168.43.107/tp2/index.php')
+        .then( (res) => res.json())
+        .then( json => console.log(json))
     }
 
 
