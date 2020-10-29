@@ -4,7 +4,7 @@ class ChatroomGrid extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      chatroom: [],
+      chatrooms: [],
     };
   }
 
@@ -17,18 +17,18 @@ class ChatroomGrid extends Component {
       .then((res) => res.json())
       .then((json) => {
         this.setState({
-          chatroom: json.chatroom,
+          chatrooms: json.chatrooms,
         });
       });
   };
 
   render() {
-    const chatroom = this.state.chatroom;
-    const rows = Object.keys(chatroom).map((element, index) => (
+    const chatrooms = this.state.chatrooms;
+    const rows = Object.keys(chatrooms).map((element, index) => (
       <tr key={element}>
         <th scope="row">{index}</th>
         <td>serveur</td>
-        <td>{chatroom[element]}</td>
+        <td>{chatrooms[element]}</td>
       </tr>
     ));
     return (

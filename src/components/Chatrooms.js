@@ -7,7 +7,7 @@ class Chatrooms extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            chatrooms : []
+            chatrooms : [],
          }
     }
 
@@ -22,7 +22,7 @@ class Chatrooms extends Component {
         fetch('http://a2berranger.alwaysdata.net/tp2/index.php')
         .then( (res) => res.json())
         .then( json => {
-            this.setState({ chatrooms : json.chatroom})
+            this.setState({ chatrooms : json.chatrooms})
         })
     }
 
