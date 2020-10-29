@@ -4,7 +4,11 @@ class ChatroomGrid extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      chatroom: [],
+      chatrooms: [],
+      servers: [
+        "http://a2berranger.alwaysdata.net/tp2/index.php",
+        "http://a2berranger.alwaysdata.net/tp2/index2.php",
+      ],
     };
   }
 
@@ -13,24 +17,28 @@ class ChatroomGrid extends Component {
   }
 
   _fetchUsers = () => {
-    fetch("http://a2berranger.alwaysdata.net/tp2/index.php")
-      .then((res) => res.json())
-      .then((json) => {
-        this.setState({
-          chatroom: json.chatroom,
+    for (const el of this.state.servers) {
+      fetch(el)
+        .then((res) => res.json())
+        .then((json) => {
+          let chatrooms = this.state.chatrooms;
+          let chatroomsModif = [...chatrooms, json.chatrooms];
+          this.setState({ chatrooms: chatroomsModif });
         });
-      });
+    }
   };
 
   render() {
-    const chatroom = this.state.chatroom;
-    const rows = Object.keys(chatroom).map((element, index) => (
-      <tr key={element}>
-        <th scope="row">{index}</th>
-        <td>serveur</td>
-        <td>{chatroom[element]}</td>
-      </tr>
-    ));
+    const chatrooms = this.state.chatrooms;
+    const rows = Object.keys(chatrooms).map((element, index) =>
+      Object.keys(chatrooms[element]).map((element2, index2) => (
+        <tr key={element2}>
+          {/* <th scope="row">{index}</th> */}
+          <td>{this.state.servers[index]}</td>
+          <td>{chatrooms[element][element2]}</td>
+        </tr>
+      ))
+    );
     return (
       <div className="card">
         <div className="card-body">
@@ -38,7 +46,7 @@ class ChatroomGrid extends Component {
           <table className="table table-hover">
             <thead>
               <tr>
-                <th scope="col">#</th>
+                {/* <th scope="col">#</th> */}
                 <th scope="col">Server</th>
                 <th scope="col">Chatroom</th>
               </tr>
