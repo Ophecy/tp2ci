@@ -29,12 +29,16 @@ class Chatrooms extends Component {
   };
 
   render() {
-    const { chatrooms } = this.state;
-    const server = window.location.origin;
+    const { chatrooms, servers } = this.state;
     let nbChatrooms = 0;
     for (const e of chatrooms) {
       nbChatrooms += e.length;
     }
+    const serverList = Object.keys(servers).map((server) => (
+      <p className="text-info" key={server}>
+        {servers[server]}
+      </p>
+    ));
 
     return (
       <div className="col-3 p-3">
@@ -42,7 +46,7 @@ class Chatrooms extends Component {
           <p className="text-primary font-weight-bold text-left">Chatrooms</p>
           <h1 className="text-left">{nbChatrooms}</h1>
           <p className="text-secondary">On servers: </p>
-          <p className="text-info">{server}</p>
+          {serverList}
         </div>
       </div>
     );

@@ -6,8 +6,8 @@ class TotalUsers extends Component {
     this.state = {
       users: [],
       servers: [
-        "http://a2berranger.alwaysdata.net/tp2/index.php",
-        "http://a2berranger.alwaysdata.net/tp2/index2.php",
+        "http://a2berranger.alwaysdata.net/tp2/1/users",
+        "http://a2berranger.alwaysdata.net/tp2/2/users",
       ],
     };
   }
