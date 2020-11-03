@@ -1,0 +1,14 @@
+{
+  "arrowParens": "avoid",
+  "bracketSpacing": true,
+  "embeddedLanguageFormatting": "auto",
+  "endOfLine": "crlf",
+  "insertPragma": false,
+  "jsxBracketSameLine": false,
+  "singleQuote": false,
+  "packageManager": "yarn",
+  "semi": true,
+  "tabWidth": 2,
+  "trailingComma": "es5",
+  "useTabs": true
+}

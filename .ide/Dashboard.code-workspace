@@ -1,0 +1,23 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"prettier.configPath": "${workspaceFolder}/.ide/.prettierrc",
+		"prettier.enable": true,
+	},
+	"launch": {
+		"configurations": [
+			{
+				"name": "Launch",
+				"type": "node-terminal",
+				"request": "launch",
+				"command": "yarn start"
+			}
+		],
+		"compounds": []
+	}
+}
