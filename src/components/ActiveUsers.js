@@ -6,8 +6,8 @@ class ActiveUsers extends Component {
     this.state = {
       users: [],
       servers: [
-        "http://a2berranger.alwaysdata.net/tp2/index.php",
-        "http://a2berranger.alwaysdata.net/tp2/index2.php",
+        "http://a2berranger.alwaysdata.net/tp2/1/users",
+        "http://a2berranger.alwaysdata.net/tp2/2/users",
       ],
     };
   }
@@ -23,7 +23,7 @@ class ActiveUsers extends Component {
         .then((json) => {
           let usersModiff = [
             ...this.state.users,
-            json.users.filter((u) => u.currentStatus === "ACTIVE"),
+            json.filter((u) => u.currentStatus === "ACTIVE"),
           ];
           this.setState({
             users: usersModiff,
@@ -33,8 +33,12 @@ class ActiveUsers extends Component {
   };
 
   render() {
-    const { users } = this.state;
-    const server = window.location.origin;
+    const { users, servers } = this.state;
+    const serverlist = Object.keys(servers).map((server) => (
+      <p className="text-info" key={server}>
+        {servers[server]}
+      </p>
+    ));
     let nbUsers = 0;
     for (const e of users) {
       nbUsers += e.length;
@@ -48,7 +52,7 @@ class ActiveUsers extends Component {
           </p>
           <h1 className="text-left">{nbUsers}</h1>
           <p className="text-secondary">On servers: </p>
-          <p className="text-info">{server}</p>
+          {serverlist}
         </div>
       </div>
     );

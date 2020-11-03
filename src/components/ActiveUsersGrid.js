@@ -6,8 +6,8 @@ class ActiveUsersGrid extends Component {
     this.state = {
       allUsers: [],
       servers: [
-        "http://a2berranger.alwaysdata.net/tp2/index.php",
-        "http://a2berranger.alwaysdata.net/tp2/index2.php",
+        "http://a2berranger.alwaysdata.net/tp2/1/users",
+        "http://a2berranger.alwaysdata.net/tp2/2/users",
       ],
     };
   }
@@ -17,12 +17,12 @@ class ActiveUsersGrid extends Component {
   }
 
   _fetchUsers = () => {
-    for (const e of this.state.servers) {
-      fetch(e)
+    for (const serverUrl of this.state.servers) {
+      fetch(serverUrl)
         .then((res) => res.json())
         .then((json) => {
           let allUsers = this.state.allUsers;
-          let usersModiff = [...allUsers, json.users];
+          let usersModiff = [...allUsers, json];
           this.setState({
             allUsers: usersModiff,
           });

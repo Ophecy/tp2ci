@@ -6,8 +6,8 @@ class ChatroomGrid extends Component {
     this.state = {
       chatrooms: [],
       servers: [
-        "http://a2berranger.alwaysdata.net/tp2/index.php",
-        "http://a2berranger.alwaysdata.net/tp2/index2.php",
+        "http://a2berranger.alwaysdata.net/tp2/1/chatrooms",
+        "http://a2berranger.alwaysdata.net/tp2/2/chatrooms",
       ],
     };
   }
@@ -22,7 +22,7 @@ class ChatroomGrid extends Component {
         .then((res) => res.json())
         .then((json) => {
           let chatrooms = this.state.chatrooms;
-          let chatroomsModif = [...chatrooms, json.chatrooms];
+          let chatroomsModif = [...chatrooms, json];
           this.setState({ chatrooms: chatroomsModif });
         });
     }
