@@ -8,6 +8,19 @@
 		"editor.defaultFormatter": "esbenp.prettier-vscode",
 		"prettier.configPath": "${workspaceFolder}/.ide/.prettierrc",
 		"prettier.enable": true,
+		
+		"eslint.format.enable": false,
+		"eslint.packageManager": "yarn",
+		"eslint.probe": [
+			"javascript",
+			"javascriptreact",
+			"html",
+			"markdown"
+		],
+		"eslint.run": "onType",
+		"eslint.validate": [
+		"javascript"
+		],
 	},
 	"launch": {
 		"configurations": [
