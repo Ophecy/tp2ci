@@ -5,6 +5,10 @@ class Chatrooms extends Component {
     super(props);
     this.state = {
       chatrooms: [],
+      servers: [
+        "http://a2berranger.alwaysdata.net/tp2/index.php",
+        "http://a2berranger.alwaysdata.net/tp2/index2.php",
+      ],
     };
   }
 
@@ -13,22 +17,30 @@ class Chatrooms extends Component {
   }
 
   _fetchChatrooms = () => {
-    fetch("http://a2berranger.alwaysdata.net/tp2/index.php")
-      .then((res) => res.json())
-      .then((json) => {
-        this.setState({ chatrooms: json.chatrooms });
-      });
+    for (const serverUrl of this.state.servers) {
+      fetch(serverUrl)
+        .then((res) => res.json())
+        .then((json) => {
+          let chatrooms = this.state.chatrooms;
+          let chatroomsModif = [...chatrooms, json.chatrooms];
+          this.setState({ chatrooms: chatroomsModif });
+        });
+    }
   };
 
   render() {
     const { chatrooms } = this.state;
     const server = window.location.origin;
+    let nbChatrooms = 0;
+    for (const e of chatrooms) {
+      nbChatrooms += e.length;
+    }
 
     return (
       <div className="col-3 p-3">
         <div className="card bg-white p-2">
           <p className="text-primary font-weight-bold text-left">Chatrooms</p>
-          <h1 className="text-left">{chatrooms.length}</h1>
+          <h1 className="text-left">{nbChatrooms}</h1>
           <p className="text-secondary">On servers: </p>
           <p className="text-info">{server}</p>
         </div>
