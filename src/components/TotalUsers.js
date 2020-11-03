@@ -1,44 +1,50 @@
-import React, {Component} from 'react'
-
-const URL = 'http://a2berranger.alwaysdata.net/tp2/index.php';
+import React, { Component } from "react";
 
 class TotalUsers extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      users: [],
+      servers: [
+        "http://a2berranger.alwaysdata.net/tp2/index.php",
+        "http://a2berranger.alwaysdata.net/tp2/index2.php",
+      ],
+    };
+  }
 
+  componentDidMount() {
+    this._fetchUsers();
+  }
 
-    constructor(props) {
-        super(props);
-        this.state = { 
-            nbUsers : []
-         }
+  _fetchUsers = () => {
+    for (const e of this.state.servers) {
+      fetch(e)
+        .then((res) => res.json())
+        .then((json) => {
+          const users = this.state.users;
+          let usersModiff = [...users, json];
+          this.setState({
+            users: usersModiff,
+          });
+        });
     }
+  };
 
-    componentDidMount(){
-        this._fetchUsers();
+  render() {
+    const { users } = this.state;
+    let nbUsers = 0;
+    for (const e of users) {
+      nbUsers += e.length;
     }
-
-
-
-    _fetchUsers =  () => {
-        
-        fetch(URL)
-        .then( (res) => res.json())
-        .then( json => {
-            this.setState({nbUsers : json.users.length})
-        })
-    }
-
-
-    render() { 
-        const {nbUsers} = this.state
-        return (
-            <div className="col-3 p-3">
-                <div className="card bg-white p-2">
-                    <p className="text-primary font-weight-bold text-left">Total Users</p>
-                    <h1 className="text-left">{nbUsers}</h1>
-                </div>
-            </div>
-        );
-    }
+    return (
+      <div className="col-3 p-3">
+        <div className="card bg-white p-2">
+          <p className="text-primary font-weight-bold text-left">Total Users</p>
+          <h1 className="text-left">{nbUsers}</h1>
+        </div>
+      </div>
+    );
+  }
 }
- 
+
 export default TotalUsers;
