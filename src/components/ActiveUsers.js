@@ -17,8 +17,8 @@ class ActiveUsers extends Component {
 	}
 
 	_fetchUsers = () => {
-		for (const e of this.state.servers) {
-			fetch(e)
+		for (const serverUrl of this.state.servers) {
+			fetch(serverUrl)
 				.then((res) => res.json())
 				.then((json) => {
 					let usersModiff = [
