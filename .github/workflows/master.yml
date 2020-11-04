@@ -1,4 +1,4 @@
-name: build
+name: Dashboard react CI
 on: [push]
 jobs:
   install:
