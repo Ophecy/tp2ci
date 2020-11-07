@@ -19,11 +19,11 @@ class ActiveUsers extends Component {
 	_fetchUsers = () => {
 		for (const serverUrl of this.state.servers) {
 			fetch(serverUrl)
-				.then((res) => res.json())
-				.then((json) => {
+				.then(res => res.json())
+				.then(json => {
 					let usersModiff = [
 						...this.state.usersList,
-						json.filter((u) => u.currentStatus === "ACTIVE"),
+						json.filter(u => u.currentStatus === "ACTIVE"),
 					];
 					this.setState({
 						usersList: usersModiff,

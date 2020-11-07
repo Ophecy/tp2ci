@@ -19,8 +19,8 @@ class ChatroomGrid extends Component {
 	_fetchUsers = () => {
 		for (const serverUrl of this.state.servers) {
 			fetch(serverUrl)
-				.then((res) => res.json())
-				.then((json) => {
+				.then(res => res.json())
+				.then(json => {
 					let chatroomsList = this.state.chatroomsList;
 					let chatroomsModif = [...chatroomsList, json];
 					this.setState({ chatroomsList: chatroomsModif });

@@ -19,8 +19,8 @@ class TotalUsers extends Component {
 	_fetchUsers = () => {
 		for (const e of this.state.servers) {
 			fetch(e)
-				.then((res) => res.json())
-				.then((json) => {
+				.then(res => res.json())
+				.then(json => {
 					const usersList = this.state.usersList;
 					let usersModiff = [...usersList, json];
 					this.setState({

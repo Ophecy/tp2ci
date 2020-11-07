@@ -19,8 +19,8 @@ class ActiveUsersGrid extends Component {
 	_fetchUsers = () => {
 		for (const serverUrl of this.state.servers) {
 			fetch(serverUrl)
-				.then((res) => res.json())
-				.then((json) => {
+				.then(res => res.json())
+				.then(json => {
 					let usersList = this.state.usersList;
 					let usersModiff = [...usersList, json];
 					this.setState({

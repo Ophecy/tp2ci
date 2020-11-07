@@ -12,7 +12,7 @@ function App() {
 		<div className="App">
 			<div className="container-fluid">
 				<div className="row">
-					<div className="col-2 p-0" style={{backgroundColor: "#d5d9dd"}}>
+					<div className="col-2 p-0" style={{ backgroundColor: "#d5d9dd" }}>
 						<nav className="navbar">
 							<button type="button" className="btn ml-auto">
 								<svg
