@@ -32,27 +32,35 @@ class ActiveUsers extends Component {
 		}
 	};
 
-	render() {
-		const { usersList, servers } = this.state;
-		const serverlist = Object.keys(servers).map((server) => (
+	_getServerList() {
+		const { servers } = this.state;
+
+		return Object.keys(servers).map(server => (
 			<p className="text-info" key={server}>
 				{servers[server]}
 			</p>
 		));
+	}
+
+	_getUsersCount() {
+		const { usersList } = this.state;
 		let nbUsers = 0;
 		for (const users of usersList) {
 			nbUsers += users.length;
 		}
+		return nbUsers;
+	}
 
+	render() {
 		return (
 			<div className="col-3 p-3">
 				<div className="card bg-white p-2">
 					<p className="text-primary font-weight-bold text-left">
 						Active Users
 					</p>
-					<h1 className="text-left">{nbUsers}</h1>
+					<h1 className="text-left">{this._getUsersCount()}</h1>
 					<p className="text-secondary">On servers: </p>
-					{serverlist}
+					{this._getServerList()}
 				</div>
 			</div>
 		);

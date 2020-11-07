@@ -30,10 +30,10 @@ class ActiveUsersGrid extends Component {
 		}
 	};
 
-	render() {
+	_generateRows() {
 		const { usersList } = this.state;
-		const rows = usersList.map((users) =>
-			Object.keys(users).map((element) => (
+		const rows = usersList.map(users =>
+			Object.keys(users).map(element => (
 				<tr key={element}>
 					<th scope="row">{users[element].account.id}</th>
 					<td>serveur</td>
@@ -42,6 +42,10 @@ class ActiveUsersGrid extends Component {
 				</tr>
 			))
 		);
+		return rows;
+	}
+
+	render() {
 		return (
 			<div className="card">
 				<div className="card-body">
@@ -55,7 +59,7 @@ class ActiveUsersGrid extends Component {
 								<th scope="col">Active</th>
 							</tr>
 						</thead>
-						<tbody>{rows}</tbody>
+						<tbody>{this._generateRows()}</tbody>
 					</table>
 				</div>
 			</div>

@@ -28,9 +28,9 @@ class ChatroomGrid extends Component {
 		}
 	};
 
-	render() {
+	_generateRows() {
 		const chatroomsList = this.state.chatroomsList;
-		const rows = Object.keys(chatroomsList).map((element, index) =>
+		return Object.keys(chatroomsList).map((element, index) =>
 			Object.keys(chatroomsList[element]).map((element2, index2) => (
 				<tr key={element2}>
 					<td>{this.state.servers[index]}</td>
@@ -38,6 +38,9 @@ class ChatroomGrid extends Component {
 				</tr>
 			))
 		);
+	}
+
+	render() {
 		return (
 			<div className="card">
 				<div className="card-body">
@@ -49,7 +52,7 @@ class ChatroomGrid extends Component {
 								<th scope="col">Chatroom</th>
 							</tr>
 						</thead>
-						<tbody>{rows}</tbody>
+						<tbody>{this._generateRows()}</tbody>
 					</table>
 				</div>
 			</div>
