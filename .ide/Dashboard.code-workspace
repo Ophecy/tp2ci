@@ -6,7 +6,7 @@
 	],
 	"settings": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode",
-		"prettier.configPath": "${workspaceFolder}/.ide/.prettierrc",
+		"prettier.configPath": ".ide/.prettierrc",
 		"prettier.enable": true,
 		
 		"eslint.format.enable": false,
